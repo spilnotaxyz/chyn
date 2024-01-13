@@ -1,0 +1,9 @@
+[
+  {
+    "name": "input",
+    "files": [
+      "ui/input.tsx"
+    ],
+    "type": "components:ui"
+  },
+]
