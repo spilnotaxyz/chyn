@@ -57,7 +57,7 @@ export function ThemeCustomizer() {
       <Drawer>
         <DrawerTrigger asChild>
           <Button variant="outline" className="md:hidden">
-            <Paintbrush className="mr-2 w-4 h-4" />
+            <Paintbrush className="mr-2 h-4 w-4" />
             Customize
           </Button>
         </DrawerTrigger>
@@ -66,7 +66,7 @@ export function ThemeCustomizer() {
         </DrawerContent>
       </Drawer>
       <div className="hidden md:flex">
-        <div className="hidden items-center mr-2 space-x-0.5 lg:flex">
+        <div className="mr-2 hidden items-center space-x-0.5 lg:flex">
           {mounted ? (
             <>
               {["zinc", "rose", "blue", "green", "orange"].map((color) => {
@@ -109,7 +109,7 @@ export function ThemeCustomizer() {
                           )}
                         >
                           {isActive && (
-                            <CheckIcon className="w-4 h-4 text-white" />
+                            <CheckIcon className="h-4 w-4 text-white" />
                           )}
                         </span>
                         <span className="sr-only">{theme.label}</span>
@@ -126,25 +126,25 @@ export function ThemeCustomizer() {
               })}
             </>
           ) : (
-            <div className="flex gap-4 items-center mr-1">
-              <Skeleton className="w-6 h-6 rounded-full" />
-              <Skeleton className="w-6 h-6 rounded-full" />
-              <Skeleton className="w-6 h-6 rounded-full" />
-              <Skeleton className="w-6 h-6 rounded-full" />
-              <Skeleton className="w-6 h-6 rounded-full" />
+            <div className="mr-1 flex items-center gap-4">
+              <Skeleton className="h-6 w-6 rounded-full" />
+              <Skeleton className="h-6 w-6 rounded-full" />
+              <Skeleton className="h-6 w-6 rounded-full" />
+              <Skeleton className="h-6 w-6 rounded-full" />
+              <Skeleton className="h-6 w-6 rounded-full" />
             </div>
           )}
         </div>
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline">
-              <Paintbrush className="mr-2 w-4 h-4" />
+              <Paintbrush className="mr-2 h-4 w-4" />
               Customize
             </Button>
           </PopoverTrigger>
           <PopoverContent
             align="center"
-            className="z-40 p-6 bg-white w-[340px] rounded-[0.5rem] dark:bg-zinc-950"
+            className="z-40 w-[340px] rounded-[0.5rem] bg-white p-6 dark:bg-zinc-950"
           >
             <Customizer />
           </PopoverContent>
@@ -170,8 +170,8 @@ function Customizer() {
       className="flex flex-col space-y-4 md:space-y-6"
     >
       <div className="flex items-start pt-4 md:pt-0">
-        <div className="pr-2 space-y-1">
-          <div className="font-semibold tracking-tight leading-none">
+        <div className="space-y-1 pr-2">
+          <div className="font-semibold leading-none tracking-tight">
             Customize
           </div>
           <div className="text-xs text-muted-foreground">
@@ -194,17 +194,17 @@ function Customizer() {
           <span className="sr-only">Reset</span>
         </Button>
       </div>
-      <div className="flex flex-col flex-1 space-y-4 md:space-y-6">
+      <div className="flex flex-1 flex-col space-y-4 md:space-y-6">
         <div className="space-y-1.5">
-          <div className="flex items-center w-full">
+          <div className="flex w-full items-center">
             <Label className="text-xs">Style</Label>
             <Popover>
               <PopoverTrigger>
-                <InfoCircledIcon className="ml-1 w-3 h-3" />
+                <InfoCircledIcon className="ml-1 h-3 w-3" />
                 <span className="sr-only">About styles</span>
               </PopoverTrigger>
               <PopoverContent
-                className="space-y-3 text-sm rounded-[0.5rem]"
+                className="space-y-3 rounded-[0.5rem] text-sm"
                 side="right"
                 align="start"
                 alignOffset={-20}
@@ -286,12 +286,12 @@ function Customizer() {
                       "mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]"
                     )}
                   >
-                    {isActive && <CheckIcon className="w-4 h-4 text-white" />}
+                    {isActive && <CheckIcon className="h-4 w-4 text-white" />}
                   </span>
                   {theme.label}
                 </Button>
               ) : (
-                <Skeleton className="w-full h-8" key={theme.name} />
+                <Skeleton className="h-8 w-full" key={theme.name} />
               )
             })}
           </div>
@@ -348,8 +348,8 @@ function Customizer() {
               </>
             ) : (
               <>
-                <Skeleton className="w-full h-8" />
-                <Skeleton className="w-full h-8" />
+                <Skeleton className="h-8 w-full" />
+                <Skeleton className="h-8 w-full" />
               </>
             )}
           </div>
@@ -387,9 +387,9 @@ function CopyCodeButton() {
           className="md:hidden"
         >
           {hasCopied ? (
-            <CheckIcon className="mr-2 w-4 h-4" />
+            <CheckIcon className="mr-2 h-4 w-4" />
           ) : (
-            <CopyIcon className="mr-2 w-4 h-4" />
+            <CopyIcon className="mr-2 h-4 w-4" />
           )}
           Copy
         </Button>
@@ -423,12 +423,12 @@ function CopyCodeButton() {
                   )
                   setHasCopied(true)
                 }}
-                className="absolute top-4 right-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
+                className="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground"
               >
                 {hasCopied ? (
-                  <CheckIcon className="mr-2 w-4 h-4" />
+                  <CheckIcon className="mr-2 h-4 w-4" />
                 ) : (
-                  <CopyIcon className="mr-2 w-4 h-4" />
+                  <CopyIcon className="mr-2 h-4 w-4" />
                 )}
                 Copy
               </Button>
@@ -447,15 +447,15 @@ function CustomizerCode() {
   return (
     <ThemeWrapper defaultTheme="zinc" className="relative space-y-4">
       <div data-rehype-pretty-code-fragment="">
-        <pre className="overflow-x-auto py-4 rounded-lg border max-h-[450px] bg-zinc-950 dark:bg-zinc-900">
-          <code className="relative font-mono text-sm rounded bg-muted px-[0.3rem] py-[0.2rem]">
-            <span className="text-white line">@layer base &#123;</span>
-            <span className="text-white line">&nbsp;&nbsp;:root &#123;</span>
-            <span className="text-white line">
+        <pre className="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+            <span className="line text-white">@layer base &#123;</span>
+            <span className="line text-white">&nbsp;&nbsp;:root &#123;</span>
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--background:{" "}
               {activeTheme?.cssVars.light["background"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--foreground:{" "}
               {activeTheme?.cssVars.light["foreground"]};
             </span>
@@ -469,7 +469,7 @@ function CustomizerCode() {
               "destructive",
             ].map((prefix) => (
               <>
-                <span className="text-white line">
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{" "}
                   {
                     activeTheme?.cssVars.light[
@@ -478,7 +478,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-                <span className="text-white line">
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{" "}
                   {
                     activeTheme?.cssVars.light[
@@ -489,29 +489,29 @@ function CustomizerCode() {
                 </span>
               </>
             ))}
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--border:{" "}
               {activeTheme?.cssVars.light["border"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--input:{" "}
               {activeTheme?.cssVars.light["input"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--ring:{" "}
               {activeTheme?.cssVars.light["ring"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--radius: {config.radius}rem;
             </span>
-            <span className="text-white line">&nbsp;&nbsp;&#125;</span>
-            <span className="text-white line">&nbsp;</span>
-            <span className="text-white line">&nbsp;&nbsp;.dark &#123;</span>
-            <span className="text-white line">
+            <span className="line text-white">&nbsp;&nbsp;&#125;</span>
+            <span className="line text-white">&nbsp;</span>
+            <span className="line text-white">&nbsp;&nbsp;.dark &#123;</span>
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--background:{" "}
               {activeTheme?.cssVars.dark["background"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--foreground:{" "}
               {activeTheme?.cssVars.dark["foreground"]};
             </span>
@@ -525,7 +525,7 @@ function CustomizerCode() {
               "destructive",
             ].map((prefix) => (
               <>
-                <span className="text-white line">
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{" "}
                   {
                     activeTheme?.cssVars.dark[
@@ -534,7 +534,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-                <span className="text-white line">
+                <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}-foreground:{" "}
                   {
                     activeTheme?.cssVars.dark[
@@ -545,20 +545,20 @@ function CustomizerCode() {
                 </span>
               </>
             ))}
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--border:{" "}
               {activeTheme?.cssVars.dark["border"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--input:{" "}
               {activeTheme?.cssVars.dark["input"]};
             </span>
-            <span className="text-white line">
+            <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--ring:{" "}
               {activeTheme?.cssVars.dark["ring"]};
             </span>
-            <span className="text-white line">&nbsp;&nbsp;&#125;</span>
-            <span className="text-white line">&#125;</span>
+            <span className="line text-white">&nbsp;&nbsp;&#125;</span>
+            <span className="line text-white">&#125;</span>
           </code>
         </pre>
       </div>

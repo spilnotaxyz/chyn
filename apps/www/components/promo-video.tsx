@@ -6,7 +6,7 @@ export function PromoVideo() {
   return (
     <AspectRatio
       ratio={16 / 9}
-      className="overflow-hidden bg-white rounded-lg border shadow-xl"
+      className="overflow-hidden rounded-lg border bg-white shadow-xl"
     >
       <video autoPlay muted playsInline>
         <source

@@ -29,7 +29,7 @@ Headless Web3 UI components based on shadcn/ui, wagmi and viem.
             href={siteConfig.links.github}
             className={cn(buttonVariants({ variant: "outline" }))}
           >
-            <Icons.gitHub className="mr-2 w-4 h-4" />
+            <Icons.gitHub className="mr-2 h-4 w-4" />
             GitHub
           </Link>
         </PageActions>

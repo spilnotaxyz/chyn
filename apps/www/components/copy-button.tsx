@@ -69,9 +69,9 @@ export function CopyButton({
     >
       <span className="sr-only">Copy</span>
       {hasCopied ? (
-        <CheckIcon className="w-3 h-3" />
+        <CheckIcon className="h-3 w-3" />
       ) : (
-        <CopyIcon className="w-3 h-3" />
+        <CopyIcon className="h-3 w-3" />
       )}
     </Button>
   )
@@ -114,9 +114,9 @@ export function CopyWithClassNames({
           )}
         >
           {hasCopied ? (
-            <CheckIcon className="w-3 h-3" />
+            <CheckIcon className="h-3 w-3" />
           ) : (
-            <CopyIcon className="w-3 h-3" />
+            <CopyIcon className="h-3 w-3" />
           )}
           <span className="sr-only">Copy</span>
         </Button>
@@ -176,9 +176,9 @@ export function CopyNpmCommandButton({
           )}
         >
           {hasCopied ? (
-            <CheckIcon className="w-3 h-3" />
+            <CheckIcon className="h-3 w-3" />
           ) : (
-            <CopyIcon className="w-3 h-3" />
+            <CopyIcon className="h-3 w-3" />
           )}
           <span className="sr-only">Copy</span>
         </Button>

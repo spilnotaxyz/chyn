@@ -43,8 +43,8 @@ export function ComponentExample({
       {...props}
     >
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <div className="flex justify-between items-center pb-3">
-          <TabsList className="justify-start p-0 w-full bg-transparent rounded-none border-b">
+        <div className="flex items-center justify-between pb-3">
+          <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
             <TabsTrigger
               value="preview"
               className="relative rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"

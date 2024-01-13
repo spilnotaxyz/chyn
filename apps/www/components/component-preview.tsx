@@ -41,7 +41,7 @@ export function ComponentPreview({
       return (
         <p className="text-sm text-muted-foreground">
           Component{" "}
-          <code className="relative font-mono text-sm rounded bg-muted px-[0.3rem] py-[0.2rem]">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
           </code>{" "}
           not found in registry.
@@ -69,8 +69,8 @@ export function ComponentPreview({
       {...props}
     >
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <div className="flex justify-between items-center pb-3">
-          <TabsList className="justify-start p-0 w-full bg-transparent rounded-none border-b">
+        <div className="flex items-center justify-between pb-3">
+          <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
             <TabsTrigger
               value="preview"
               className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
@@ -86,7 +86,7 @@ export function ComponentPreview({
           </TabsList>
         </div>
         <TabsContent value="preview" className="relative rounded-md border">
-          <div className="flex justify-between items-center p-4">
+          <div className="flex items-center justify-between p-4">
             <StyleSwitcher />
             {extractedClassNames ? (
               <CopyWithClassNames
@@ -111,7 +111,7 @@ export function ComponentPreview({
               <React.Suspense
                 fallback={
                   <div className="flex items-center text-sm text-muted-foreground">
-                    <Icons.spinner className="mr-2 w-4 h-4 animate-spin" />
+                    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                     Loading...
                   </div>
                 }
