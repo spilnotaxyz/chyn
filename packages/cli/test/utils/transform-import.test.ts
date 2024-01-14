@@ -8,9 +8,10 @@ test("transform import", async () => {
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/components/ui/button"
+    import { InputERC20 } from "@/registry/default/chyn/input-erc20"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn } from "@/lib/utils"
     `,
@@ -22,6 +23,7 @@ import { Foo } from "bar"
         },
         aliases: {
           components: "@/components",
+          ui: "@/components/ui",
           utils: "@/lib/utils",
         },
       },
@@ -33,9 +35,10 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/components/ui/button"
+    import { InputERC20 } from "@/registry/default/chyn/input-erc20"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn, foo, bar } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"
@@ -44,6 +47,7 @@ import { Foo } from "bar"
         tsx: true,
         aliases: {
           components: "~/src/components",
+          ui: "~/src/components/ui",
           utils: "~/lib",
         },
       },
@@ -55,9 +59,10 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/components/ui/button"
+    import { InputERC20 } from "@/registry/default/chyn/input-erc20"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"
@@ -67,6 +72,7 @@ import { Foo } from "bar"
         aliases: {
           components: "~/src/components",
           utils: "~/src/utils",
+          ui: "~/src/components/ui",
         },
       },
     })
@@ -77,9 +83,10 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/components/ui/button"
+    import { InputERC20 } from "@/registry/default/chyn/input-erc20"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"
@@ -100,9 +107,9 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/components/ui/button"
+    import { InputERC20 } from "@/registry/default/chyn/input-erc20"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
 
     import { cn } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"
@@ -113,6 +120,7 @@ import { Foo } from "bar"
           components: "~/src/components",
           utils: "~/src/utils",
           ui: "~/src/ui",
+          chyn: "~/src/chyn",
         },
       },
     })

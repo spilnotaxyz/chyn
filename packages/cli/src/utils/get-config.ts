@@ -63,7 +63,8 @@ export async function getConfig(cwd: string) {
     return null
   }
 
-  return await resolveConfigPaths(cwd, config)
+  const test = await resolveConfigPaths(cwd, config)
+  return test
 }
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
@@ -88,7 +89,10 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       ui: await resolveImport(config.aliases["ui"], tsConfig),
       chyn: config.aliases["chyn"]
         ? await resolveImport(config.aliases["chyn"], tsConfig)
-        : await resolveImport(config.aliases["components"], tsConfig),
+        : await resolveImport(
+            path.join(config.aliases["components"], "chyn"),
+            tsConfig
+          ),
     },
   })
 }

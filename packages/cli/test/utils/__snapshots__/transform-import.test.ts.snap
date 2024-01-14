@@ -4,6 +4,7 @@ exports[`transform import 1`] = `
 "import * as React from \\"react\\"
 import { Foo } from \\"bar\\"
     import { Button } from \\"@/components/ui/button\\"
+    import { InputERC20 } from \\"@/components/chyn/input-erc20\\"
     import { Label} from \\"ui/label\\"
     import { Box } from \\"@/components/box\\"
 
@@ -15,6 +16,7 @@ exports[`transform import 2`] = `
 "import * as React from \\"react\\"
 import { Foo } from \\"bar\\"
     import { Button } from \\"~/src/components/ui/button\\"
+    import { InputERC20 } from \\"~/src/components/chyn/input-erc20\\"
     import { Label} from \\"ui/label\\"
     import { Box } from \\"~/src/components/box\\"
 
@@ -27,6 +29,7 @@ exports[`transform import 3`] = `
 "import * as React from \\"react\\"
 import { Foo } from \\"bar\\"
     import { Button } from \\"~/src/components/ui/button\\"
+    import { InputERC20 } from \\"~/src/components/chyn/input-erc20\\"
     import { Label} from \\"ui/label\\"
     import { Box } from \\"~/src/components/box\\"
 
@@ -39,8 +42,9 @@ exports[`transform import 4`] = `
 "import * as React from \\"react\\"
 import { Foo } from \\"bar\\"
     import { Button } from \\"~/src/components/button\\"
+    import { InputERC20 } from \\"~/src/components/chyn/input-erc20\\"
     import { Label} from \\"ui/label\\"
-    import { Box } from \\"@/registry/new-york/box\\"
+    import { Box } from \\"~/src/components/box\\"
 
     import { cn } from \\"~/src/utils\\"
     import { bar } from \\"@/lib/utils/bar\\"
@@ -51,8 +55,8 @@ exports[`transform import 5`] = `
 "import * as React from \\"react\\"
 import { Foo } from \\"bar\\"
     import { Button } from \\"~/src/ui/button\\"
+    import { InputERC20 } from \\"~/src/chyn/input-erc20\\"
     import { Label} from \\"ui/label\\"
-    import { Box } from \\"@/registry/new-york/box\\"
 
     import { cn } from \\"~/src/utils\\"
     import { bar } from \\"@/lib/utils/bar\\"

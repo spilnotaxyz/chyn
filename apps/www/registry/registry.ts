@@ -1,10 +1,10 @@
 import { Registry } from "@/registry/schema"
 
-const ui: Registry = [
+const chyn: Registry = [
   {
     name: "input-erc20",
-    type: "components:ui",
-    files: ["ui/input-erc20.tsx"],
+    type: "components:chyn",
+    files: ["chyn/input-erc20.tsx"],
   },
 ]
 
@@ -23,4 +23,4 @@ const example: Registry = [
   },
 ]
 
-export const registry: Registry = [...ui, ...example]
+export const registry: Registry = [...chyn, ...example]

@@ -126,6 +126,10 @@ export async function getItemTargetPath(
     return config.resolvedPaths.ui
   }
 
+  if (item.type === "components:chyn" && config.aliases.chyn) {
+    return config.resolvedPaths.chyn
+  }
+
   const [parent, type] = item.type.split(":")
   if (!(parent in config.resolvedPaths)) {
     return null
