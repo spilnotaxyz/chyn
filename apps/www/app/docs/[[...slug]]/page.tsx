@@ -89,11 +89,11 @@ export default async function DocPage({ params }: DocPageProps) {
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
-        <div className="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
-          <div className="overflow-hidden whitespace-nowrap text-ellipsis">
+        <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+          <div className="overflow-hidden text-ellipsis whitespace-nowrap">
             Docs
           </div>
-          <ChevronRightIcon className="w-4 h-4" />
+          <ChevronRightIcon className="h-4 w-4" />
           <div className="font-medium text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
@@ -107,7 +107,7 @@ export default async function DocPage({ params }: DocPageProps) {
           )}
         </div>
         {doc.links ? (
-          <div className="flex items-center pt-4 space-x-2">
+          <div className="flex items-center space-x-2 pt-4">
             {doc.links?.doc && (
               <Link
                 href={doc.links.doc}
@@ -116,7 +116,7 @@ export default async function DocPage({ params }: DocPageProps) {
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
                 Docs
-                <ExternalLinkIcon className="w-3 h-3" />
+                <ExternalLinkIcon className="h-3 w-3" />
               </Link>
             )}
             {doc.links?.api && (
@@ -127,19 +127,19 @@ export default async function DocPage({ params }: DocPageProps) {
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
                 API Reference
-                <ExternalLinkIcon className="w-3 h-3" />
+                <ExternalLinkIcon className="h-3 w-3" />
               </Link>
             )}
           </div>
         ) : null}
-        <div className="pt-8 pb-12">
+        <div className="pb-12 pt-8">
           <Mdx code={doc.body.code} />
         </div>
         <DocsPager doc={doc} />
       </div>
       {doc.toc && (
         <div className="hidden text-sm xl:block">
-          <div className="sticky top-16 pt-4 -mt-10">
+          <div className="sticky top-16 -mt-10 pt-4">
             <ScrollArea className="pb-10">
               <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
                 <DashboardTableOfContents toc={toc} />
