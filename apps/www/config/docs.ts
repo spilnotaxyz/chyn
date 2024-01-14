@@ -16,10 +16,6 @@ export const docsConfig: DocsConfig = {
       href: "/docs/components/input-erc20",
     },
     {
-      title: "Figma",
-      href: "/docs/figma",
-    },
-    {
       title: "GitHub",
       href: "https://github.com/spilnotaxyz/chyn",
       external: true,
@@ -49,26 +45,11 @@ export const docsConfig: DocsConfig = {
         //   href: "/docs/components-json",
         //   items: [],
         // },
-        {
-          title: "Theming",
-          href: "https://ui.shadcn.com/docs/theming",
-          items: [],
-        },
-        {
-          title: "Dark mode",
-          href: "https://ui.shadcn.com/docs/dark-mode",
-          items: [],
-        },
         // {
         //   title: "CLI",
         //   href: "/docs/cli",
         //   items: [],
         // },
-        {
-          title: "Typography",
-          href: "https://ui.shadcn.com/docs/components/typography",
-          items: [],
-        },
         // {
         //   title: "Changelog",
         //   href: "/docs/changelog",
@@ -82,6 +63,27 @@ export const docsConfig: DocsConfig = {
         {
           title: "Input ERC20",
           href: "/docs/components/input-erc20",
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Shadcn",
+      items: [
+        {
+          title: "Typography",
+          href: "https://ui.shadcn.com/docs/components/typography",
+          items: [],
+        },
+
+        {
+          title: "Theming",
+          href: "https://ui.shadcn.com/docs/theming",
+          items: [],
+        },
+        {
+          title: "Dark mode",
+          href: "https://ui.shadcn.com/docs/dark-mode",
           items: [],
         },
       ],

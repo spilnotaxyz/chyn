@@ -22,6 +22,7 @@ test("get raw config", async () => {
     tsx: true,
     aliases: {
       components: "@/components",
+      ui: "@/components/ui",
       utils: "@/lib/utils",
     },
   })
@@ -54,6 +55,7 @@ test("get config", async () => {
     tsx: true,
     aliases: {
       components: "@/components",
+      ui: "@/components/ui",
       utils: "@/lib/utils",
     },
     resolvedPaths: {
@@ -77,14 +79,15 @@ test("get config", async () => {
         "../fixtures/config-partial",
         "./lib/utils"
       ),
-      ui: path.resolve(__dirname, "../fixtures/config-partial", "./components"),
+      ui: path.resolve(__dirname, "../fixtures/config-partial", "./components/ui"),
+      chyn: path.resolve(__dirname, "../fixtures/config-partial", "./components/chyn"),
     },
   })
 
   expect(
     await getConfig(path.resolve(__dirname, "../fixtures/config-full"))
   ).toEqual({
-    style: "new-york",
+    style: "default",
     rsc: false,
     tsx: true,
     tailwind: {
@@ -96,6 +99,7 @@ test("get config", async () => {
     },
     aliases: {
       components: "~/components",
+      ui: "~/components/ui",
       utils: "~/lib/utils",
     },
     resolvedPaths: {
@@ -117,13 +121,15 @@ test("get config", async () => {
       ui: path.resolve(
         __dirname,
         "../fixtures/config-full",
-        "./src/components"
+        "./src/components/ui"
       ),
       utils: path.resolve(
         __dirname,
         "../fixtures/config-full",
         "./src/lib/utils"
       ),
+
+      chyn: path.resolve(__dirname, "../fixtures/config-full", "./src/components/chyn"),
     },
   })
 
@@ -141,7 +147,8 @@ test("get config", async () => {
     tsx: false,
     aliases: {
       components: "@/components",
-      utils: "@/lib/utils",
+      ui: "@/components/ui",
+      utils: "@/lib/utils"
     },
     resolvedPaths: {
       tailwindConfig: path.resolve(
@@ -159,8 +166,9 @@ test("get config", async () => {
         "../fixtures/config-jsx",
         "./components"
       ),
-      ui: path.resolve(__dirname, "../fixtures/config-jsx", "./components"),
+      ui: path.resolve(__dirname, "../fixtures/config-jsx", "./components/ui"),
       utils: path.resolve(__dirname, "../fixtures/config-jsx", "./lib/utils"),
+      chyn: path.resolve(__dirname, "../fixtures/config-jsx", "./components/chyn"),
     },
   })
 })

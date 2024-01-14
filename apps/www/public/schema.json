@@ -46,7 +46,7 @@
           "type": "string"
         }
       },
-      "required": ["utils", "components"]
+      "required": ["ui", "utils", "components"]
     }
   },
   "required": ["style", "tailwind", "rsc", "aliases"]

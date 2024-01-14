@@ -1,10 +1,9 @@
-'use client'
+"use client"
 
-import { ReactNode } from 'react'
-import { useState } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { http, WagmiProvider as LibWagmiProvider, createConfig } from 'wagmi'
-import {  mainnet } from 'wagmi/chains'
+import { ReactNode, useState } from "react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { WagmiProvider as LibWagmiProvider, createConfig, http } from "wagmi"
+import { mainnet } from "wagmi/chains"
 
 export const config = createConfig({
   ssr: true,
@@ -15,7 +14,9 @@ export const config = createConfig({
 export function WagmiProvider({ children }: { children: ReactNode }) {
   // Retrieved from the `trpc-provider.tsx`
   const [queryClient] = useState(() => new QueryClient())
-  return <QueryClientProvider client={queryClient}>
-    <LibWagmiProvider config={config}>{children}</LibWagmiProvider>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <LibWagmiProvider config={config}>{children}</LibWagmiProvider>
     </QueryClientProvider>
+  )
 }

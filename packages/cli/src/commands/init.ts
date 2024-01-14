@@ -1,9 +1,11 @@
 import { existsSync, promises as fs } from "fs"
 import path from "path"
 import {
+  DEFAULT_CHYN,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_TAILWIND_CSS,
+  DEFAULT_UI,
   DEFAULT_UTILS,
   getConfig,
   rawConfigSchema,
@@ -151,8 +153,26 @@ export async function promptForConfig(
     {
       type: "text",
       name: "components",
-      message: `Configure the import alias for ${highlight("components")}:`,
+      message: `Configure the import alias for ${highlight(
+        "components"
+      )} (The folder where your app-specific components reside):`,
       initial: defaultConfig?.aliases["components"] ?? DEFAULT_COMPONENTS,
+    },
+    {
+      type: "text",
+      name: "ui",
+      message: `Configure the import alias for ${highlight(
+        "ui"
+      )} (The folder where your shadcn components reside):`,
+      initial: defaultConfig?.aliases["ui"] ?? DEFAULT_UI,
+    },
+    {
+      type: "text",
+      name: "ui",
+      message: `Configure the import alias for ${highlight(
+        "chyn"
+      )} (The folder where your chyn components will reside):`,
+      initial: defaultConfig?.aliases["chyn"] ?? DEFAULT_CHYN,
     },
     {
       type: "text",
@@ -171,7 +191,7 @@ export async function promptForConfig(
   ])
 
   const config = rawConfigSchema.parse({
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://chyn.spilnota.xyz/schema.json",
     style: options.style,
     tailwind: {
       config: options.tailwindConfig,
@@ -183,7 +203,6 @@ export async function promptForConfig(
     rsc: options.rsc,
     tsx: options.typescript,
     aliases: {
-      utils: options.utils,
       components: options.components,
     },
   })
@@ -193,7 +212,7 @@ export async function promptForConfig(
       type: "confirm",
       name: "proceed",
       message: `Write configuration to ${highlight(
-        "components.json"
+        "chyn-components.json"
       )}. Proceed?`,
       initial: true,
     })
@@ -205,8 +224,8 @@ export async function promptForConfig(
 
   // Write to file.
   logger.info("")
-  const spinner = ora(`Writing components.json...`).start()
-  const targetPath = path.resolve(cwd, "components.json")
+  const spinner = ora(`Writing chyn-components.json...`).start()
+  const targetPath = path.resolve(cwd, "chyn-components.json")
   await fs.writeFile(targetPath, JSON.stringify(config, null, 2), "utf8")
   spinner.succeed()
 
@@ -292,10 +311,7 @@ export async function runInit(cwd: string, config: Config) {
   const packageManager = await getPackageManager(cwd)
 
   // TODO: add support for other icon libraries.
-  const deps = [
-    ...PROJECT_DEPENDENCIES,
-    config.style === "new-york" ? "@radix-ui/react-icons" : "lucide-react",
-  ]
+  const deps = [...PROJECT_DEPENDENCIES, "lucide-react"]
 
   await execa(
     packageManager,

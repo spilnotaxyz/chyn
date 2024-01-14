@@ -15,9 +15,11 @@ export default function IndexPage() {
   return (
     <div className="container relative">
       <PageHeader>
-        <PageHeaderHeading>Build your web3 component library</PageHeaderHeading>
+        <PageHeaderHeading>
+          Build your web3 UI component library
+        </PageHeaderHeading>
         <PageHeaderDescription>
-Headless Web3 UI components based on shadcn/ui, wagmi and viem.
+          Headless Web3 UI components based on shadcn/ui, wagmi and viem.
         </PageHeaderDescription>
         <PageActions>
           <Link href="/docs" className={cn(buttonVariants())}>
