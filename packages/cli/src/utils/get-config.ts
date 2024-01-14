@@ -6,6 +6,8 @@ import * as z from "zod"
 
 export const DEFAULT_STYLE = "default"
 export const DEFAULT_COMPONENTS = "@/components"
+export const DEFAULT_UI = "@/components/ui"
+export const DEFAULT_CHYN = "@/components/chyn"
 export const DEFAULT_UTILS = "@/lib/utils"
 export const DEFAULT_TAILWIND_CSS = "app/globals.css"
 export const DEFAULT_TAILWIND_CONFIG = "tailwind.config.js"
@@ -14,7 +16,7 @@ export const DEFAULT_TAILWIND_BASE_COLOR = "slate"
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
 const explorer = cosmiconfig("components", {
-  searchPlaces: ["components.json"],
+  searchPlaces: ["chyn-components.json"],
 })
 
 export const rawConfigSchema = z
@@ -33,7 +35,8 @@ export const rawConfigSchema = z
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
-      ui: z.string().optional(),
+      ui: z.string(),
+      chyn: z.string().optional(),
     }),
   })
   .strict()
@@ -47,6 +50,7 @@ export const configSchema = rawConfigSchema.extend({
     utils: z.string(),
     components: z.string(),
     ui: z.string(),
+    chyn: z.string(),
   }),
 })
 
@@ -81,8 +85,9 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       tailwindCss: path.resolve(cwd, config.tailwind.css),
       utils: await resolveImport(config.aliases["utils"], tsConfig),
       components: await resolveImport(config.aliases["components"], tsConfig),
-      ui: config.aliases["ui"]
-        ? await resolveImport(config.aliases["ui"], tsConfig)
+      ui: await resolveImport(config.aliases["ui"], tsConfig),
+      chyn: config.aliases["chyn"]
+        ? await resolveImport(config.aliases["chyn"], tsConfig)
         : await resolveImport(config.aliases["components"], tsConfig),
     },
   })
@@ -98,6 +103,8 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
 
     return rawConfigSchema.parse(configResult.config)
   } catch (error) {
-    throw new Error(`Invalid configuration found in ${cwd}/components.json.`)
+    throw new Error(
+      `Invalid configuration found in ${cwd}/chyn-components.json.`
+    )
   }
 }

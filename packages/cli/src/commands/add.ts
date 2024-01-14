@@ -60,7 +60,7 @@ export const add = new Command()
         logger.warn(
           `Configuration is missing. Please run ${chalk.green(
             `init`
-          )} to create a components.json file.`
+          )} to create a chyn-components.json file.`
         )
         process.exit(1)
       }

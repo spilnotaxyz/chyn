@@ -1,9 +1,7 @@
 [
   {
-    "name": "input",
-    "files": [
-      "ui/input.tsx"
-    ],
+    "name": "input-erc20",
+    "files": ["chyn/input-erc20.tsx"],
     "type": "components:ui"
-  },
+  }
 ]
