@@ -9,10 +9,10 @@ import { Toaster as NewYorkToaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"
 import { SiteFooter } from "@/components/site-footer"
-import { WagmiProvider } from "@/components/wagmi-provider"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeSwitcher } from "@/components/theme-switcher"
+import { WagmiProvider } from "@/components/wagmi-provider"
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    "wagmi",'viem',
+    "wagmi",
+    "viem",
     "Next.js",
     "React",
     "Tailwind CSS",
@@ -89,27 +90,27 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.className
           )}
         >
-<WagmiProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background">
-                <SiteHeader />
-                <main className="flex-1">{children}</main>
-                <SiteFooter />
+          <WagmiProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <div vaul-drawer-wrapper="">
+                <div className="relative flex min-h-screen flex-col bg-background">
+                  <SiteHeader />
+                  <main className="flex-1">{children}</main>
+                  <SiteFooter />
+                </div>
               </div>
-            </div>
-            <TailwindIndicator />
-            <ThemeSwitcher />
-            <Analytics />
-            <NewYorkToaster />
-            <NewYorkSonner />
-          </ThemeProvider>
-</WagmiProvider>
+              <TailwindIndicator />
+              <ThemeSwitcher />
+              <Analytics />
+              <NewYorkToaster />
+              <NewYorkSonner />
+            </ThemeProvider>
+          </WagmiProvider>
         </body>
       </html>
     </>
