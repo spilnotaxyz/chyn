@@ -42,7 +42,7 @@ jobs:
       - name: Authenticate to NPM
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> packages/cli/.npmrc
         env:
-          NPM_ACCESS_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish Beta to NPM
         run: pnpm pub:beta
